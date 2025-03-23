@@ -133,7 +133,6 @@ void World::CollapseTile(Vector2 coordinate, std::vector<Vector2>& openTiles)
 	}
 	
 	m_grid[coordinate.y][coordinate.x] = static_cast<ETileType>(Utility::WeightedRandom(weights));
-	//m_grid[coordinate.y][coordinate.x] = possibilities[GetRandomValue(0, possibilities.size() - 1)];
 	possibilities = std::vector<ETileType>{ m_grid[coordinate.y][coordinate.x] };
 	InsertNeighbours(coordinate, openTiles);
 }
@@ -143,7 +142,6 @@ void World::InsertNeighbours(Vector2 coordinate, std::vector<Vector2>& tiles)
 	for (int y = -1; y <= 1; ++y)
 		for (int x = -1; x <= 1; ++x)
 			tiles.push_back(Vector2(coordinate.x + x, coordinate.y + y));
-	
 }
 
 void World::GenerateWorld()
